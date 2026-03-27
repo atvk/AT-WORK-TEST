@@ -1,10 +1,9 @@
 .card {
   display: flex;
-  width: 100%;
-  max-width: 360px;
-  height: 168px;
   align-items: flex-start;
+  width: 100%;
   box-sizing: border-box;
+  min-height: 168px;
   gap: 20px;
   background-color: #fff;
   border-radius: 16px;
@@ -12,12 +11,9 @@
   transition:
     box-shadow 0.2s,
     filter 0.2s;
-  overflow: visible;
-
   &:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
-
   @media (max-width: 768px) {
     width: 100%;
     min-width: 162px;
@@ -44,14 +40,13 @@
     min-width: 130px;
     height: 120px;
   }
-}
-
-.avatar {
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  object-fit: cover;
-  background-color: #f0f0f0;
+  .avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    background-color: #f0f0f0;
+  }
 }
 
 .content {
@@ -96,6 +91,7 @@
 }
 
 .menuContainer {
+  display: flex;
   position: relative;
   flex-shrink: 0;
 }
@@ -123,30 +119,29 @@
   height: 100%;
   align-content: space-between;
   justify-content: space-between;
-}
+  .company {
+    margin: 0;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    font-weight: 600;
+    color: #595959;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: calc(100% - 32px);
+  }
 
-.company {
-  margin: 0;
-  font-size: 16px;
-  line-height: 100%;
-  letter-spacing: 0%;
-  font-weight: 600;
-  color: #595959;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: calc(100% - 32px);
-}
-
-.city {
-  margin: 0;
-  font-size: 14px;
-  line-height: 100%;
-  letter-spacing: 0%;
-  font-weight: 500;
-  color: #9c9c9c;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: calc(100% - 32px);
+  .city {
+    margin: 0;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    font-weight: 500;
+    color: #9c9c9c;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: calc(100% - 32px);
+  }
 }
