@@ -1,50 +1,73 @@
-# AT-WORK-TEST
+# React + TypeScript + Vite
 
-Тестовое задание для Frontend
-Разработать интерфейс двухстраничного приложения на React
-Макет
-https://www.figma.com/file/ZUhwEwudliE4AF3JMDEDkj/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-At-Work?type=design&node-id=0%3A1&mode=design&t=CwexYI3hLjYVTEPi-1
-Описание главной страницы
-Отображает список пользователей, которых можно получить с https://jsonplaceholder.typicode.com/ по роуту /users
-Достаточно вывести первые 6 пользователей
-Каждая карточка содержит:
-•	Username
-•	City
-•	Company name
-•	Аватарка (любая картинка, можно свою)
-Действия с карточкой:
-•	Редактировать (переносит на страницу изменения данных пользователя)
-•	Архивировать (переносит карточку в секцию Архив)
-•	Скрыть (Убирает карточку из списка)
-Данные могут сбрасываться после перезагрузки
-Во время загрузки данных отобразить сообщение об этом, либо loader
-Карточку из архива можно сделать активной, карточка возвращается в секцию активные
-Описание страницы редактирования
-Должна содержать:
-•	Name
-•	Username
-•	Email
-•	City
-•	Phone (выводить в том же виде, в котором приходит с api)
-•	Company Name
-•	Аватарка (любая картинка, можно свою)
-Во время загрузки данных отобразить сообщение об этом, либо loader
-На странице можно менять данные и сохранять изменения
-Валидация: 
-•	Имя: от 2 до 64 символов
-•	Никнейм: от 2 до 64 символов
-•	Почта: базовая валидация от zod
-•	Город: от 2 до 64 символов
-•	Телефон — ввод только цифр
-•	Название компании: от 2 до 64 символов
-При нажатии на кнопку сохранить и успешной валидации появляется попап с сообщением, попап закрывается при нажатии на крестик, подложку, либо через 4 секунды
-Изменения могут не сохраняться после перезагрузки и переходе на главную страницу
-Технические требования
-Использовать React, TypeScript, Zustand, React Hook Form + Zod, tanstack query, SCSS
-Для роутинга использовать React Router v7
-Задеплоить удобным вам способом и прислать ссылку
-Код решения прислать ссылкой на репозиторий Github
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Выполните тестовое в течение 4 дней
+Currently, two official plugins are available:
 
-Использовать можно только средства из технических требований
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```

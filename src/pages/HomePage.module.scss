@@ -1,0 +1,37 @@
+.homePage {
+  background-color: #f4f4f4;
+  margin-top: 40px;
+  z-index: 1;
+  width: 100%;
+  @media (max-width: 768px) {
+    margin-top: 32px;
+  }
+}
+
+.container {
+  max-width: 1160px;
+  min-width: 375px;
+  margin: 0 auto;
+  padding-inline: 10px;
+  section {
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #333;
+  }
+}
+
+.userList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  justify-items: center;
+
+  @media (max-width: 768px) {
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

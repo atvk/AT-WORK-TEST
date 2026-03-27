@@ -1,0 +1,82 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #3498db;
+  margin-bottom: 1rem;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.formContainer {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.avatarSection {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  label {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+  input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    &:focus {
+      outline: none;
+      border-color: #3498db;
+    }
+  }
+  .error {
+    color: #f44336;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+  }
+}
+
+.saveBtn {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+  &:hover {
+    background-color: #45a049;
+  }
+}

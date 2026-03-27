@@ -1,0 +1,13 @@
+
+.icon {
+  transition: color 0.2s ease;
+  color: #161616;
+
+  &:hover {
+    color: #22a0bc; 
+  }
+
+  &:active {
+    color: #595959; 
+  }
+}
