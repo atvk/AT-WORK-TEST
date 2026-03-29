@@ -1,10 +1,12 @@
+// Toast.module.scss
+
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: #1616163D; // semi-transparent dark overlay
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,23 +14,77 @@
 }
 
 .toast {
-  background-color: white;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
   position: relative;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  width: 310px;
+  height: 211px;
+  padding: 40px;
+  gap: 20px;
+
+ 
+  @media (max-width: 768px) {
+    width: 271px;
+    height: 189px;
+    padding: 32px;
+    gap: 16px;
+  }
 }
 
 .closeBtn {
-  background: none;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: transparent;
   border: none;
-  font-size: 1.5rem;
+  font-size: 24px;
+  line-height: 1;
   cursor: pointer;
-  color: #999;
+  color: #666;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+
   &:hover {
-    color: #333;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: inherit; 
+  height: 100%;
+}
+
+.icon {
+  width: 84px;
+  height: 84px;
+  display: block;
+}
+
+.message {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0;
+  margin: 0;
+  text-align: center;
+  color: #333;
+
+ 
+  @media (max-width: 768px) {
+    font-size: 18px;
   }
 }

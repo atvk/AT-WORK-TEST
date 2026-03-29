@@ -1,0 +1,37 @@
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #595959;
+  transition: all 0.2s ease;
+  padding: 20px 0;
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+
+  svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  &:hover {
+    color: #22a0bc;
+  }
+
+  &:active {
+    color: #595959;
+  }
+
+  @media (max-width: 768px) {
+    gap: 4px;
+    padding: 6px 4px 6px 8px;
+    border-bottom: 1px solid #eaeaea;
+    max-width: 342px;
+    font-size: 0.875rem;
+  }
+}
