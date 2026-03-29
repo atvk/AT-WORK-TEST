@@ -8,10 +8,23 @@ interface PopupProps {
 }
 
 const Popup = ({ message, onClose, duration = 4000 }: PopupProps) => {
+  
   useEffect(() => {
     const timer = setTimeout(onClose, duration);
     return () => clearTimeout(timer);
   }, [onClose, duration]);
+
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
 
   return (
     <div className={styles.overlay} onClick={onClose}>
