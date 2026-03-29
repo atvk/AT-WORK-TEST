@@ -1,4 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Manrope:wght@500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Manrope:wght@500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+//color
+$color-06: #fdfdfd;
+$color-05: #f4f4f4;
+$color-04: #dadada;
+$color-03: #9c9c9c;
+$color-02: #595959;
+$color-01: #161616;
+$color-accent: #22a0bc;
+$color-error: #ec291c;
+
+//font-size
+$font-size-24: 1.5rem; // 24px
+$font-size-20: 1.25rem; // 20px
+$font-size-18: 1.125rem; // 18px
+$font-size-16: 1rem; // 16px
+$font-size-14: 0.875rem; // 14px
+$font-size-12: 0.75rem; // 12px
+$font-size-10: 0.5rem; // 10px
+
+// font-weight
+$font-weight-bold: 700;
+$font-weight-semibold: 600;
+$font-weight-medium: 500;
+$font-weight-light: 400;
+// font-family
+$font-family-Manrope: "Manrope", sans-serif;
+$font-family-Inter: "Inter", sans-serif;
 
 * {
   margin: 0;
@@ -7,17 +35,27 @@
 }
 
 html,
-body, #root {
+body,
+#root {
   max-width: 100%;
   overflow-x: hidden;
 }
 
-
 body {
-  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    "Manrope",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
   font-weight: 500;
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: $color-05;
 }
 
 a {
@@ -26,10 +64,11 @@ a {
 }
 
 .app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  justify-items: center;
   width: 100%;
+  min-height: 100vh;      
 }
 
 .main-content {
@@ -37,4 +76,5 @@ a {
   grid-template-columns: 100%;
   justify-items: center;
   width: 100%;
+  min-height: 100vh;      
 }

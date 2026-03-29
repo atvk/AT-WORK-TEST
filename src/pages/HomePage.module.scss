@@ -1,40 +1,48 @@
+@import "../index.scss";
+
 .homePage {
-  background-color: #f4f4f4;
-  margin-top: 40px;
+  display: grid;
+  justify-items: center;
+  background-color: $color-05;
+  margin-block-start: 40px;
+  padding-inline: 16px;
   z-index: 1;
   width: 100%;
   @media (max-width: 768px) {
-    margin-top: 32px;
+    margin-block-start: 32px;
   }
-}
+  .container {
+    display: grid;
+    justify-items: start;
+    grid-template-columns: minmax(375px, 1160px);
+    grid-template-rows: min-content;
+    gap: 40px;
+    @media (max-width: 768px) {
+      justify-items: stretch;
+      min-width: 375px;
+    }
 
-.container {
-  max-width: 1160px;
-  min-width: 375px;
-  margin: 0 auto;
-  padding-inline: 10px;
-  section {
-    margin-bottom: 2rem;
-  }
+    h2 {
+      min-height: 49px;
+      width: 100%;
+      font-size: $font-size-24;
+      color: $color-01;
+      border-bottom: 1px solid $color-03;
+    }
+    section{
+      width: 100%;
+    }
 
-  h2 {
-    min-height: 49px;
-    font-size: 24px;
-    color: #333;
-    border-bottom: 1px solid #dadada;
-  }
-}
-
-.userList {
-  display: grid;
-  padding-block-start: 28px;
-  width: 100%;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 40px;
-
-  @media (max-width: 768px) {
-    gap: 20px;
-    padding-block-start: 16px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    .userList {
+      display: grid;
+      padding-block-start: 28px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 40px;
+      @media (max-width: 768px) {
+        gap: 20px;
+        padding-block-start: 16px;
+        grid-template-columns: repeat(2, minmax(162px, 1fr));
+      }
+    }
   }
 }

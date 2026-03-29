@@ -1,11 +1,12 @@
+@import "../index.scss";
+
 .saveButton {
-  height: 46px;
-  background-color: #161616;
+  background-color: $color-01;
   color: white;
   border: none;
   border-radius: 50px;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: $font-size-16;
+  font-weight: $font-weight-semibold;
   cursor: pointer;
   transition: background-color 0.2s;
   padding: 12px 42px;
@@ -14,20 +15,18 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-
+  height: 46px;
   &:hover {
-    background-color: #f4f4f4;
-    color: #595959;
+    background-color: $color-05;
+    color: $color-02;
   }
-
   &:disabled {
-    opacity: 0.6;
+    opacity: 0.2;
     cursor: not-allowed;
   }
-
   @media (max-width: 768px) {
-    font-size: 14px;
+    font-size: $font-size-14;
     width: 100%;
-    height: 46px;
+    height: 44px;
   }
 }

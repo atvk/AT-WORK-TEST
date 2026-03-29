@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
-import styles from './Toast.module.scss';
+import styles from './Popup.module.scss';
 
-interface ToastProps {
+interface PopupProps {
   message: string;
   onClose: () => void;
   duration?: number;
 }
 
-const Toast = ({ message, onClose, duration = 4000 }: ToastProps) => {
+const Popup = ({ message, onClose, duration = 4000 }: PopupProps) => {
   useEffect(() => {
     const timer = setTimeout(onClose, duration);
     return () => clearTimeout(timer);
@@ -15,7 +15,7 @@ const Toast = ({ message, onClose, duration = 4000 }: ToastProps) => {
 
   return (
     <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.toast} onClick={(e) => e.stopPropagation()}>
+      <div className={styles.popup} onClick={(e) => e.stopPropagation()}>
         <button className={styles.closeBtn} onClick={onClose} aria-label="Close">
           ×
         </button>
@@ -40,4 +40,4 @@ const Toast = ({ message, onClose, duration = 4000 }: ToastProps) => {
   );
 };
 
-export default Toast;
+export default Popup;

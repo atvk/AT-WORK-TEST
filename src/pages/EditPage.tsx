@@ -4,8 +4,8 @@ import { fetchUserById } from "../api/users";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { userFormSchema, type UserFormValidation } from "../utils/validation";
-import { useState } from "react";
-import Toast from "../components/Toast";
+import { useState, useEffect } from "react";
+import Popup from "../components/Popup";
 import Loader from "../components/Loader";
 import styles from "./EditPage.module.scss";
 import BackButton from "../components/BackButton";
@@ -29,41 +29,56 @@ const EditPage = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
+    reset,
+    trigger,
   } = useForm<UserFormValidation>({
     resolver: zodResolver(userFormSchema),
-    values: user
-      ? {
-          name: user.name,
-          username: user.username,
-          email: user.email,
-          city: user.address.city,
-          phone: user.phone.replace(/\D/g, ""),
-          companyName: user.company.name,
-        }
-      : undefined,
+    mode: "onChange", // валидация при каждом изменении
+    defaultValues: {
+      name: "",
+      username: "",
+      email: "",
+      city: "",
+      phone: "",
+      companyName: "",
+    },
   });
 
-  const onSubmit = () => {
+  useEffect(() => {
+    if (user) {
+      const formValues = {
+        name: user.name,
+        username: user.username,
+        email: user.email,
+        city: user.address.city,
+        phone: user.phone.replace(/\D/g, ""),
+        companyName: user.company.name,
+      };
+      reset(formValues);
+      trigger(); // запустить валидацию после заполнения
+    }
+  }, [user, reset, trigger]);
+
+  const onSubmit = (data: UserFormValidation) => {
+    console.log("Сохранено:", data);
     setShowToast(true);
+    // Здесь можно отправить данные на сервер
   };
 
   if (isLoading) return <Loader />;
   if (error) return <div>Ошибка загрузки пользователя</div>;
   if (!user) return <div>Пользователь не найден</div>;
 
-  const avatarUrl = "/avatar.jpg"; // или из API, если есть
+  const avatarUrl = "/avatar.jpg";
 
   return (
     <div className={styles.pageEdit}>
-      {/* Кнопка "Назад" на всю ширину */}
       <div className={styles.backWrapper}>
         <BackButton />
       </div>
 
-      {/* Две колонки */}
       <div className={styles.twoColumns}>
-        {/* Левая колонка: фото + информация */}
         <div className={styles.leftColumn}>
           <div className={styles.photoBlock}>
             <img src={avatarUrl} alt={user.username} className={styles.photo} />
@@ -76,7 +91,6 @@ const EditPage = () => {
           </div>
         </div>
 
-        {/* Правая колонка: форма */}
         <div className={styles.rightColumn}>
           <div className={styles.formCard}>
             <h1 className={styles.formTitle}>Данные профиля</h1>
@@ -114,7 +128,8 @@ const EditPage = () => {
                 />
               </div>
               <div className={styles.saveButtonWrapper}>
-                <SaveButton />
+                {/* Передаём disabled если форма не валидна */}
+                <SaveButton disabled={!isValid} />
               </div>
             </form>
           </div>
@@ -122,7 +137,7 @@ const EditPage = () => {
       </div>
 
       {showToast && (
-        <Toast
+        <Popup
           message="Изменения сохранены!"
           onClose={() => setShowToast(false)}
         />

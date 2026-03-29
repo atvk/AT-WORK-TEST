@@ -1,46 +1,42 @@
-// Toast.module.scss
+@import "../index.scss";
 
 .overlay {
+  display: flex;
   position: fixed;
+  align-items: center;
+  justify-content: center;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: #1616163D; // semi-transparent dark overlay
-  display: flex;
-  align-items: center;
-  justify-content: center;
   z-index: 1000;
+  background: rgba($color-01, 0.5); 
 }
 
-.toast {
-  position: relative;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.popup {
   display: flex;
   flex-direction: column;
+  position: relative;
+  background: $color-06;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba($color-01, 0.3);
   width: 310px;
   height: 211px;
   padding: 40px;
   gap: 20px;
-
- 
   @media (max-width: 768px) {
     width: 271px;
     height: 189px;
     padding: 32px;
     gap: 16px;
   }
-}
-
-.closeBtn {
+  .closeBtn {
   position: absolute;
   top: 6px;
   right: 6px;
   background: transparent;
   border: none;
-  font-size: 24px;
+  font-size: $font-size-24;
   line-height: 1;
   cursor: pointer;
   color: #666;
@@ -63,7 +59,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: inherit; 
+  gap: inherit;
   height: 100%;
 }
 
@@ -74,17 +70,19 @@
 }
 
 .message {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 600;
-  font-size: 20px;
+  
+  font-family: $font-family-Manrope;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-20;
   line-height: 100%;
   letter-spacing: 0;
   margin: 0;
   text-align: center;
-  color: #333;
+  color: $color-01;
 
- 
   @media (max-width: 768px) {
-    font-size: 18px;
+    font-size: $font-size-18;
   }
 }
+}
+

@@ -1,9 +1,11 @@
+@import "../index.scss";
+
 .menu {
   display: grid;
   position: absolute;
-  background-color: white;
+  background-color: $color-06;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px $color-01;
   padding: 0.5rem 0;
   min-width: 160px;
   z-index: 10;
@@ -15,10 +17,10 @@
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 0.875rem;
+    font-size: $font-size-14;
     transition: background-color 0.2s;
     &:hover {
-      background-color: #f5f5f5;
+      background-color: $color-06;
     }
   }
 }

@@ -1,3 +1,5 @@
+@import "../index.scss";
+
 .card {
   display: flex;
   align-items: flex-start;
@@ -5,14 +7,14 @@
   box-sizing: border-box;
   min-height: 168px;
   gap: 20px;
-  background-color: #fff;
+  background-color: $color-06;
   border-radius: 16px;
   padding: 24px;
   transition:
     box-shadow 0.2s,
     filter 0.2s;
   &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba($color-01, 0.3);
   }
   @media (max-width: 768px) {
     width: 100%;
@@ -45,7 +47,7 @@
     height: 100%;
     border-radius: 8px;
     object-fit: cover;
-    background-color: #f0f0f0;
+    background-color: $color-06;
   }
 }
 
@@ -75,18 +77,18 @@
 
 .username {
   margin: 0;
-  font-size: 20px;
+  font-size: $font-size-20;
   line-height: 100%;
   letter-spacing: 0%;
-  font-weight: 600;
-  color: #22a0bc;
+  font-weight: $font-weight-semibold;
+  color: $color-accent;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: calc(100% - 32px);
 
   @media (max-width: 768px) {
-    font-size: 18px;
+    font-size: $font-size-18;
   }
 }
 
@@ -121,11 +123,11 @@
   justify-content: space-between;
   .company {
     margin: 0;
-    font-size: 16px;
+    font-size: $font-size-16;
     line-height: 100%;
     letter-spacing: 0%;
-    font-weight: 600;
-    color: #595959;
+    font-weight: $font-weight-semibold;
+    color: $color-02;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -134,11 +136,11 @@
 
   .city {
     margin: 0;
-    font-size: 14px;
+    font-size: $font-size-14;
     line-height: 100%;
     letter-spacing: 0%;
-    font-weight: 500;
-    color: #9c9c9c;
+    font-weight: $font-weight-medium;
+    color: $color-03;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

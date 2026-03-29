@@ -1,17 +1,19 @@
+@import "../index.scss";
+
 .field {
   display: grid;
   gap: 8px;
   width: 100%;
 
   label {
-    font-weight: 600;
-    font-style: SemiBold;
-    font-size: 18px;
-    color: #161616;
+    font-family: $font-family-Manrope;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-18;
+    color: $color-01;
     line-height: 100%;
     letter-spacing: 0%;
     @media (max-width: 768px) {
-      font-size: 16px;
+      font-size: $font-size-16;
       leading-trim: NONE;
       line-height: 100%;
       letter-spacing: 0%;
@@ -22,30 +24,27 @@
     width: 100%;
     max-width: 420px;
     height: 42px;
-    border: 2px solid #e0e0e0;
+    border: 2px solid $color-04;
     border-radius: 50px;
     padding: 0 8px 0 16px;
     transition: border-color 0.2s;
-    font-weight: 500;
-    font-style: Medium;
-    font-size: 16px;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-16;
     line-height: 100%;
     letter-spacing: 0%;
 
     &:focus {
-      border-color: #22a0bc;
+      border-color: $color-accent;
     }
     @media (max-width: 768px) {
       max-width: 100%;
-      font-family: Manrope;
-      font-size: 14px;
+      font-size: $font-size-14;
       leading-trim: NONE;
     }
   }
 
   .error {
-    color: #f44336;
-    font-size: 16px;
-    margin-top: 0.25rem;
+    color: $color-error;
+    font-size: $font-size-14;
   }
 }

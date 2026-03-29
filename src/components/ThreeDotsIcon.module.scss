@@ -1,13 +1,12 @@
+@import "../index.scss";
 
 .icon {
   transition: color 0.2s ease;
-  color: #161616;
-
+  color: $color-01;
   &:hover {
-    color: #22a0bc; 
+    color: $color-accent;
   }
-
   &:active {
-    color: #595959; 
+    color: $color-02;
   }
 }

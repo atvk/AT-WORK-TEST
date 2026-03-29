@@ -43,7 +43,6 @@ const HomePage = () => {
           ))}
         </div>
       </section>
-
       {archivedUsers.length > 0 && (
         <section>
           <h2>Архив</h2>
